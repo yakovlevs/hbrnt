@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class HbrntApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HbrntApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(HbrntApplication.class, args);
+  }
 }
