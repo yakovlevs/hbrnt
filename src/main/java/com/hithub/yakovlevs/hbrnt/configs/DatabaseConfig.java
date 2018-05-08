@@ -63,4 +63,5 @@ public class DatabaseConfig {
 
     return sessionFactoryBean;
   }
+
 } // class DatabaseConfig

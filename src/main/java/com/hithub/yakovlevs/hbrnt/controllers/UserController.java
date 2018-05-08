@@ -5,6 +5,7 @@ import com.hithub.yakovlevs.hbrnt.models.User;
 import com.hithub.yakovlevs.hbrnt.models.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -40,6 +41,18 @@ public class UserController {
       return "User not found";
     }
     return "The user id is: " + userId;
+  }
+
+  @RequestMapping(value = "/{id}")
+  @ResponseBody
+  public User getById(@PathVariable("id") Long id) {
+    User user = null;
+    try {
+      user = _userDao.getById(id);
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+    return user;
   }
 
   @RequestMapping(value = "/save")
