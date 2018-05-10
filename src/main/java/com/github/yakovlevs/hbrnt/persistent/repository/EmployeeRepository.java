@@ -47,11 +47,8 @@ public class EmployeeRepository {
 
   @SuppressWarnings("unchecked")
   public List<Employee> getPageOfEmployee(int pageNumber, int pageSize) {
-    long totalPages = getTotalPages(pageSize);
-    long first = totalPages / pageSize * pageNumber;
-
     Query query = getEntityManager().createQuery("from Employee");
-    query.setFirstResult((int) first);
+    query.setFirstResult(pageNumber * pageSize);
     query.setMaxResults(pageSize);
     return query.getResultList();
   }
