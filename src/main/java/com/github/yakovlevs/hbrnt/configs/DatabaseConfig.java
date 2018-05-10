@@ -1,4 +1,4 @@
-package com.hithub.yakovlevs.hbrnt.configs;
+package com.github.yakovlevs.hbrnt.configs;
 
 import java.util.Properties;
 
@@ -11,8 +11,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
-@EnableTransactionManagement
+//@Configuration
+//@EnableTransactionManagement
 public class DatabaseConfig {
 
   @Value("${db.driver}")

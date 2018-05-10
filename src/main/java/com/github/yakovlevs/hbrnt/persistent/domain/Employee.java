@@ -1,10 +1,11 @@
-package com.hithub.yakovlevs.hbrnt.persistent.domain;
+package com.github.yakovlevs.hbrnt.persistent.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "employees")

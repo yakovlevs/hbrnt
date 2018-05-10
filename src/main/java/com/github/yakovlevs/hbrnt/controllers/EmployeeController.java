@@ -1,7 +1,7 @@
-package com.hithub.yakovlevs.hbrnt.controllers;
+package com.github.yakovlevs.hbrnt.controllers;
 
-import com.hithub.yakovlevs.hbrnt.persistent.domain.Employee;
-import com.hithub.yakovlevs.hbrnt.persistent.repository.EmployeeRepository;
+import com.github.yakovlevs.hbrnt.persistent.domain.Employee;
+import com.github.yakovlevs.hbrnt.persistent.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,18 +18,6 @@ public class EmployeeController {
   @Autowired
   public EmployeeController(EmployeeRepository _employeeRepository) {
     this._employeeRepository = _employeeRepository;
-  }
-
-  @RequestMapping(value = "/all")
-  @ResponseBody
-  public List<Employee> getAll() {
-    List<Employee> employees = null;
-    try {
-      employees = _employeeRepository.getAll();
-    } catch (Exception ex) {
-      ex.printStackTrace();
-    }
-    return employees;
   }
 
   @RequestMapping(value = "/range")
@@ -54,5 +42,11 @@ public class EmployeeController {
       ex.printStackTrace();
     }
     return employee;
+  }
+
+  @RequestMapping(value = "/page")
+  @ResponseBody
+  public List<Employee> getPage(int pageNumber, int pageSize) {
+    return _employeeRepository.getPageOfEmployee(pageNumber, pageSize);
   }
 }

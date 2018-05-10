@@ -1,4 +1,4 @@
-package com.hithub.yakovlevs.hbrnt;
+package com.github.yakovlevs.hbrnt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
