@@ -34,8 +34,7 @@ public class EmployeeRepository {
   }
 
   public long getTotalPages(int pageSize) {
-    Query queryTotal = getEntityManager().createQuery
-            ("SELECT count(e.id) FROM Employee AS e");
+    Query queryTotal = getEntityManager().createQuery("SELECT count(e.id) FROM Employee AS e");
     long countResult = (long) queryTotal.getSingleResult();
 
     if (countResult % pageSize > 0) {
@@ -43,13 +42,5 @@ public class EmployeeRepository {
     } else {
       return countResult / pageSize;
     }
-  }
-
-  @SuppressWarnings("unchecked")
-  public List<Employee> getPageOfEmployee(int pageNumber, int pageSize) {
-    Query query = getEntityManager().createQuery("from Employee");
-    query.setFirstResult(pageNumber * pageSize);
-    query.setMaxResults(pageSize);
-    return query.getResultList();
   }
 }

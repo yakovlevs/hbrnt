@@ -13,12 +13,8 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/empl")
 public class EmployeeController {
-  private final EmployeeRepository _employeeRepository;
-
   @Autowired
-  public EmployeeController(EmployeeRepository _employeeRepository) {
-    this._employeeRepository = _employeeRepository;
-  }
+  private EmployeeRepository _employeeRepository;
 
   @RequestMapping(value = "/range")
   @ResponseBody
@@ -47,6 +43,6 @@ public class EmployeeController {
   @RequestMapping(value = "/page")
   @ResponseBody
   public List<Employee> getPage(int pageNumber, int pageSize) {
-    return _employeeRepository.getPageOfEmployee(pageNumber, pageSize);
+    return _employeeRepository.getRangeOfEmployees((pageNumber - 1) * pageSize, pageSize);
   }
 }
