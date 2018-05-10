@@ -32,6 +32,18 @@ public class EmployeeController {
     return employees;
   }
 
+  @RequestMapping(value = "/range")
+  @ResponseBody
+  public List<Employee> getRange(int first, int max) {
+    List<Employee> employees = null;
+    try {
+      employees = _employeeRepository.getRangeOfEmployees(first, max);
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+    return employees;
+  }
+
   @RequestMapping(value = "/{id}")
   @ResponseBody
   public Employee getById(@PathVariable("id") Long id) {
